@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker Container</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            color: #fff;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .rocket {
+            font-size: 14px;
+            line-height: 1.2;
+            font-family: monospace;
+            white-space: pre;
+            margin: 30px 0;
+            animation: float 2s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .status {
+            background: rgba(102, 126, 234, 0.2);
+            border: 1px solid #667eea;
+            padding: 15px 30px;
+            border-radius: 8px;
+            color: #667eea;
+            font-size: 1.2em;
+        }
+
+        .info {
+            margin-top: 30px;
+            color: #888;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Docker Container Running</h1>
+        
+        <pre class="rocket">
+       /\
+      /  \
+     |    |
+     | W  |
+     |    |
+    /|    |\
+   / |    | \
+  '--|    |--'
+     |    |
+    /      \
+   '--------'
+        </pre>
+
+        <div class="status">
+            Container successfully built and running
+        </div>
+
+        <p class="info">
+            Rocket Docker Compose Plugin<br>
+            Седунов Андрей М3104
+        </p>
+    </div>
+</body>
+</html>

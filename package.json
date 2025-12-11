@@ -1,0 +1,51 @@
+{
+  "name": "rocket-docker-compose",
+  "displayName": "Rocket Docker Compose",
+  "description": "Ракета взлетает при запуске docker compose build",
+  "version": "1.0.0",
+  "publisher": "sedunov",
+  "author": {
+    "name": "Седунов Андрей М3104",
+    "email": "sedunovandrey2007@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FessLeru/rocket-docker-compose"
+  },
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other",
+    "Visualization"
+  ],
+  "keywords": [
+    "docker",
+    "docker-compose",
+    "rocket",
+    "animation"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "dinodocker.showDino",
+        "title": "Show Rocket Animation"
+      },
+      {
+        "command": "dinodocker.hideDino",
+        "title": "Hide Rocket Animation"
+      }
+    ]
+  },
+  "scripts": {
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "vsce": "^2.15.0"
+  }
+}
