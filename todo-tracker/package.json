@@ -1,0 +1,121 @@
+{
+  "name": "todo-tracker",
+  "displayName": "TODO Tracker",
+  "description": "Находит все TODO, FIXME, HACK комментарии в проекте и показывает их в боковой панели",
+  "version": "1.0.0",
+  "publisher": "your-name",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "todoTracker.refresh",
+        "title": "Обновить список TODO",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "todoTracker.filterAll",
+        "title": "Показать все"
+      },
+      {
+        "command": "todoTracker.filterTodo",
+        "title": "Только TODO"
+      },
+      {
+        "command": "todoTracker.filterFixme",
+        "title": "Только FIXME"
+      },
+      {
+        "command": "todoTracker.filterHack",
+        "title": "Только HACK"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "todo-tracker",
+          "title": "TODO Tracker",
+          "icon": "$(checklist)"
+        }
+      ]
+    },
+    "views": {
+      "todo-tracker": [
+        {
+          "id": "todoList",
+          "name": "Задачи",
+          "icon": "$(checklist)",
+          "contextualTitle": "TODO Tracker"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "todoTracker.refresh",
+          "when": "view == todoList",
+          "group": "navigation"
+        },
+        {
+          "command": "todoTracker.filterAll",
+          "when": "view == todoList"
+        },
+        {
+          "command": "todoTracker.filterTodo",
+          "when": "view == todoList"
+        },
+        {
+          "command": "todoTracker.filterFixme",
+          "when": "view == todoList"
+        },
+        {
+          "command": "todoTracker.filterHack",
+          "when": "view == todoList"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "TODO Tracker",
+      "properties": {
+        "todoTracker.includePatterns": {
+          "type": "array",
+          "default": ["**/*.js", "**/*.ts", "**/*.jsx", "**/*.tsx", "**/*.py", "**/*.java", "**/*.c", "**/*.cpp", "**/*.cs", "**/*.go", "**/*.rb", "**/*.php", "**/*.html", "**/*.css", "**/*.scss", "**/*.vue", "**/*.svelte", "**/*.txt", "**/*.md", "**/*.json", "**/*.xml", "**/*.yaml", "**/*.yml"],
+          "description": "Паттерны файлов для поиска"
+        },
+        "todoTracker.excludePatterns": {
+          "type": "array",
+          "default": ["**/node_modules/**", "**/dist/**", "**/build/**", "**/.git/**"],
+          "description": "Паттерны файлов для исключения"
+        },
+        "todoTracker.keywords": {
+          "type": "object",
+          "default": {
+            "TODO": "#FF8C00",
+            "FIXME": "#FF0000",
+            "HACK": "#9400D3"
+          },
+          "description": "Ключевые слова и их цвета"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/node": "18.x",
+    "eslint": "^8.56.0"
+  }
+}
+
